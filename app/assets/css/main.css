@@ -8,3 +8,10 @@
     cursor: pointer;
     background-color: white;
 }
+header {
+    background: #00E15A;
+    color: #fff;
+}
+p {
+	color: green;
+}
