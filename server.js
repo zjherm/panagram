@@ -26,8 +26,38 @@ app.get('/query', function (req, res) {
     }));
 });
 // heres how you add url params. And wildcards
-app.get('/variants', function (req, res) {
+app.get('/combo', function (req, res) {
+    if(!req.query.q) {
+        res.send(JSON.stringify({
+            "results": []
+        }));
+        return;
+    }
 
+    var p = combinations(req.query.q);
+
+    var elements = [];
+    for(var i=0;i<p.length;i++) {
+        var anas = lookupAnagram(p[i]);
+        if(!elements[p[i].length]) {
+            elements[p[i].length] = [];
+        }
+        console.log(p[i].length, anas);
+        elements[p[i].length] = arrayUnique(elements[p[i].length].concat(anas));
+    }
+
+    res.send(JSON.stringify({
+        "results": elements
+    }));
+});
+
+app.get('/random_word', function (req, res) {
+    var pool = Object.keys(anagramDict);
+    var arry = anagramDict[pool[parseInt(Math.random()*pool.length)]];
+    var word = arry[parseInt(Math.random()*arry.length)];
+    res.send(JSON.stringify({
+        "word": word
+    }));
 });
 
 app.listen(app.get('port'), function () {
@@ -35,7 +65,36 @@ app.listen(app.get('port'), function () {
 });
 
 
+// thx so http://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
+function combinations(str) {
+    var fn = function(active, rest, a) {
+        if (!active && !rest)
+            return;
+        if (!rest) {
+            a.push(active);
+        } else {
+            fn(active + rest[0], rest.slice(1), a);
+            fn(active, rest.slice(1), a);
+        }
+        return a;
+    }
+    return fn("", str, []);
+}
+
 function lookupAnagram(text) {
     var sortedText = text.split('').sort().join('');
-    return anagramDict[sortedText];
+    return anagramDict[sortedText] || [];
+}
+
+
+function arrayUnique(array) {
+    var a = array.concat();
+    for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+            if(a[i] === a[j])
+                a.splice(j--, 1);
+        }
+    }
+
+    return a;
 }
