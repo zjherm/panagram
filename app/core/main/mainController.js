@@ -1,14 +1,23 @@
 (function () {
     'use strict';
+    angular.module('app')
 
-    angular.module('app.main', [])
+      .controller('MainController', mainController);
 
-            .controller('MainController', MainController);
+      mainController.$inject = ['$http'];
 
-    MainController.$inject = [];
+    function mainController($http) {
+          var vm = this;
+          
+          vm.phrase = '';
+          vm.results = [];
 
-    function MainController() {
-        var vm = this;
-
-    }
-})();
+          vm.getPhrases = function(){
+          	console.log('inside getPhrases');
+          	$http.get("/query?q=" + vm.phrase)
+          	    .then(function(response) {
+          	        vm.results = response.data.results;
+          	    });
+          };
+    	}
+    })();

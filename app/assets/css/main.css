@@ -8,10 +8,18 @@
     cursor: pointer;
     background-color: white;
 }
-header {
+.header {
     background: #00E15A;
     color: #fff;
+    padding: 40px 0;
 }
-p {
-	color: green;
+input {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    width: 50%;
+    color: #fff;
+}
+textarea:focus, input:focus{
+    outline: none;
 }

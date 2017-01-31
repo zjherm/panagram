@@ -1,3 +1,16 @@
-<div class="container">
-	<p>Content</p>
+<div class="header">
+	<div class="container">
+		<h1>Panagram</h1>
+		<form>
+			<input ng-model="model.phrase" name="phrase" ng-change="model.getPhrases()">
+			<p ng-click="model.getPhrases()">Search</p>
+		</form>
+	</div>
+</div>
+<div class="content">
+	<div class="container">
+		<ul>
+			<li ng-repeat="result in model.results">{{result}}</li>
+		</ul>
+	</div>
 </div>
