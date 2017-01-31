@@ -1,33 +1,30 @@
 var express = require('express');
+var fs = require('fs');
 var app = express();
 
 app.set('port', (process.env.PORT || 8000));
 
 app.use(express.static(__dirname + '/app'));
 
+var anagramDict = JSON.parse(fs.readFileSync('data/anagram_dict.json', 'utf8'));
+
+
+function lookupAnagram(text) {
+    var sortedText = text.split('').sort().join('');
+    return anagramDict[sortedText];
+}
+
 
 // heres how you add url params. And wildcards
-app.get('/test/:myVar/*', function (req, res) {
-   res.send('You typed in ' + req.params.myVar);
-})
-// simple echo post. It spits back what it saw to you
-app.post('/test/echo', function (req, res, next) {
-	// JS is all async so you have to do these event listeners to receive
-	// the post content body :(
-
-	// scoop up all the data and store it
-    var data='';
-    req.on('data', function(chunk) { 
-       data += chunk;
-    });
-
-    // when the request is fully xfered then send back what
-    // we saw to them.
-    req.on('end', function() {
-        res.send(data);
-        next(); // tell express this method is done, goto next.
-    });
-})
+app.get('/query', function (req, res) {
+    var response = lookupAnagram(req.query.q);
+    if(!response) {
+        response = [];
+    }
+    res.send(JSON.stringify({
+        "results":response
+    }));
+});
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
