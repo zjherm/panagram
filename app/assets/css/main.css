@@ -14,13 +14,13 @@
     padding: 80px 0;
 }
 h1 {
-	background: url(/assets/images/logo.png) -23px -19px;
-	text-indent: -9999px;
-	display: block;
-	width: 288px;
-	height: 33px;
-	margin-top: 0;
-	margin-bottom: 30px;
+	background: url(/assets/images/logo.png) -15px -10px;
+    text-indent: -9999px;
+    display: block;
+    width: 136px;
+    height: 22px;
+    margin-top: 0;
+    margin-bottom: 30px;
 }
 input {
     background: transparent;
@@ -65,4 +65,9 @@ li {
 	width: 14px;
 	height: 16px;
 	margin-right: 5px;
+}
+.letter-box {
+    border-bottom: 1px solid #000;
+    width: 25px;
+    color: #000;
 }
