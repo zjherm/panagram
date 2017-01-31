@@ -4,10 +4,14 @@
 		<form>
 			<input ng-model="model.phrase" name="phrase" ng-change="model.getPhrases()" placeholder="type a word to anagram">
 		</form>
+		<button id="randy-button" data-ng-click="model.getRandomWord()">feeling randy</button>
 	</div>
 </div>
 <div class="content">
 	<div class="container">
+		<div style="float: right;">
+			<b>{{model.numResults}} Result(s)</b> found <span ng-if="model.isPrime(numResults)">(Its prime!)</span> <span> in {{model.responseTime}} seconds.</span>
+		</div>
 		<p class="filter-text" ng-if="model.phrase.length > 0">Show only words that start with <input ng-model="model.letter" name="letter" class="letter-box" ng-change="model.getPhrases()"></p>
 		<div class="line" ng-if="model.phrase.length > 0"></div>
 		<ul>

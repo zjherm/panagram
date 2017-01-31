@@ -14,9 +14,12 @@
     padding: 80px 0;
 }
 h1 {
+	background: url(/assets/images/logo.png) -15px -10px;
 	background: url(/assets/images/logo.png) -28px -21px;
     text-indent: -9999px;
     display: block;
+    width: 136px;
+    height: 22px;
     width: 264px;
     height: 34px;
     margin-top: 0;
@@ -26,6 +29,7 @@ input {
     background: transparent;
     border: 0;
     border-bottom: 1px solid #fff;
+    width: 50%;
     width: 25%;
     color: #fff;
 }
@@ -33,20 +37,25 @@ textarea:focus, input:focus{
     outline: none;
 }
 ::-webkit-input-placeholder {
+   color: #fff;
    color: #efefef;
 }
 
 :-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
    color: #efefef;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
    color: #efefef;  
 }
 
 :-ms-input-placeholder {  
+   color: #fff;  
    color: #efefef;  
 }
+
 * {
 	font-size: 18px;
 }
@@ -73,6 +82,7 @@ li {
     border-bottom: 1px solid #000;
     width: 25px;
     color: #000;
+
 }
 .palindrome:before {content: '';display: inline-block;background: url(/assets/images/p_icon.png);width: 11px;height: 13px;}
 
@@ -86,4 +96,17 @@ li {
     float: left;
     margin-bottom: 20px;
     margin-top: 8px;
+}
+
+
+#randy-button {
+    float: right;
+    border: 1px solid white;
+    background: transparent;
+    padding: 6px 20px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: none;
+
+
 }
