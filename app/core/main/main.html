@@ -2,13 +2,14 @@
 	<div class="container">
 		<h1>Panagram</h1>
 		<form>
-			<input ng-model="model.phrase" name="phrase" ng-change="model.getPhrases()" placeholder="Type a word to anagram">
+			<input ng-model="model.phrase" name="phrase" ng-change="model.getPhrases()" placeholder="type a word to anagram">
 		</form>
 	</div>
 </div>
 <div class="content">
 	<div class="container">
 		<p class="filter-text" ng-if="model.phrase.length > 0">Show only words that start with <input ng-model="model.letter" name="letter" class="letter-box" ng-change="model.getPhrases()"></p>
+		<div class="line" ng-if="model.phrase.length > 0"></div>
 		<ul>
 			<li ng-repeat="result in model.results" ng-class="{'palindrome':model.isPalindrome(result)}">
 				{{result}}

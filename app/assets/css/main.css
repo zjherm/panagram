@@ -14,11 +14,11 @@
     padding: 80px 0;
 }
 h1 {
-	background: url(/assets/images/logo.png) -15px -10px;
+	background: url(/assets/images/logo.png) -28px -21px;
     text-indent: -9999px;
     display: block;
-    width: 136px;
-    height: 22px;
+    width: 264px;
+    height: 34px;
     margin-top: 0;
     margin-bottom: 30px;
 }
@@ -26,28 +26,30 @@ input {
     background: transparent;
     border: 0;
     border-bottom: 1px solid #fff;
-    width: 50%;
+    width: 25%;
     color: #fff;
 }
 textarea:focus, input:focus{
     outline: none;
 }
 ::-webkit-input-placeholder {
-   color: #fff;
+   color: #efefef;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #fff;  
+   color: #efefef;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #fff;  
+   color: #efefef;  
 }
 
 :-ms-input-placeholder {  
-   color: #fff;  
+   color: #efefef;  
 }
-
+* {
+	font-size: 18px;
+}
 .content {
 	padding-top: 20px;
 }
@@ -57,6 +59,7 @@ ul {
 }
 li {
     list-style: none;
+    line-height: 2;
 }
 .filter-text:before {
 	content: '';
@@ -70,4 +73,17 @@ li {
     border-bottom: 1px solid #000;
     width: 25px;
     color: #000;
+}
+.palindrome:before {content: '';display: inline-block;background: url(/assets/images/p_icon.png);width: 11px;height: 13px;}
+
+.palindrome {
+    font-weight: bold;
+}
+.line {
+    height: 2px;
+    background: #eaeaea;
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    margin-top: 8px;
 }
