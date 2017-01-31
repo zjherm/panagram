@@ -8,6 +8,7 @@
 </div>
 <div class="content">
 	<div class="container">
+		<p class="filter-text">Show only words that start with <input ng-model="model.letter" name="letter" class="letter-box"></p>
 		<ul>
 			<li ng-repeat="result in model.results">{{result}}</li>
 		</ul>

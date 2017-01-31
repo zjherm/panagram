@@ -11,7 +11,16 @@
 .header {
     background: #00E15A;
     color: #fff;
-    padding: 40px 0;
+    padding: 80px 0;
+}
+h1 {
+	background: url(/assets/images/logo.png) -23px -19px;
+	text-indent: -9999px;
+	display: block;
+	width: 288px;
+	height: 33px;
+	margin-top: 0;
+	margin-bottom: 30px;
 }
 input {
     background: transparent;
@@ -37,4 +46,23 @@ textarea:focus, input:focus{
 
 :-ms-input-placeholder {  
    color: #fff;  
+}
+
+.content {
+	padding-top: 20px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+.filter-text:before {
+	content: '';
+	display: inline-block;
+	background: url(/assets/images/filter_icon.png);
+	width: 14px;
+	height: 16px;
+	margin-right: 5px;
 }
