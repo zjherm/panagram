@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AngularJS Template</title>
+        <title>Panagram</title>
         <meta name="description" content="AngularJS Template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="">
@@ -16,12 +16,12 @@
         <link rel="stylesheet" href="assets/css/animate.css">
     </head>
     <body data-ng-controller="IndexController as IC">
-        <div class="container">
-            <header data-ui-view="header"></header>
-            <nav data-ui-view="menu" role="navigation"></nav>
-            <section data-ui-view="breadcrumbs"></section>
-            <section data-ui-view="content"></section>
-            <footer data-ui-view="footer"></footer>
+        <div class="container-fluid">
+            <header data-ui-view="header" class="row"></header>
+            <nav data-ui-view="menu" role="navigation" class="row"></nav>
+            <section data-ui-view="breadcrumbs" class="row"></section>
+            <section data-ui-view="content" class="row"></section>
+            <footer data-ui-view="footer" class="row"></footer>
         </div>
 
         <!--[if lt IE 7]>

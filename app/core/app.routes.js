@@ -8,16 +8,10 @@
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.when('', '/todos/list');
-        $urlRouterProvider.when('/', '/todos/list');
-        $urlRouterProvider.when('/todos', '/todos/list');
-        $urlRouterProvider.when('/todos/', '/todos/list');
-        $urlRouterProvider.when('/mountains', '/mountains/list');
-        $urlRouterProvider.when('/mountains/', '/mountains/list');
+        $urlRouterProvider.when('', '/');
         $urlRouterProvider.otherwise('/');
         $stateProvider
                 .state('root', {
-                    abstract: true,
                     url: '/',
                     data: {
                         title: 'Home',
@@ -40,7 +34,9 @@
                             controllerAs: 'BC'
                         },
                         'content': {
-                            template: 'Choose option from menu...'
+                            templateUrl: 'core/main/main.html',
+                            controller: 'MainController',
+                            controllerAs: 'model'
                         },
                         'footer': {
                             templateUrl: 'core/navigation/footerView.html',
